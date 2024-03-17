@@ -1,0 +1,52 @@
+scalar Upload
+
+type File {
+    id: ID!
+    size: Int!
+    name: String!
+    mime: String!
+
+    createdAt: Time!
+    deletedAt: Time
+}
+
+
+extend type Query {
+    file(id: ID!): File!
+}
+
+input CreateFileInput {
+    name: String!
+    folderId: ID
+    upload: Upload
+}
+
+type CreateFilePayload {
+    file: File!
+}
+
+input UpdateFileInput {
+    id: ID!
+    name: String
+    parentId: ID
+}
+
+type UpdateFilePayload {
+    file: File!
+}
+
+input DeleteFileInput {
+    id: ID!
+}
+
+type DeleteFilePayload {
+    file: File!
+}
+
+extend type Mutation {
+    createFile(input: CreateFileInput!): CreateFilePayload!
+    updateFile(input: UpdateFileInput!): UpdateFilePayload!
+    deleteFile(input: DeleteFileInput!): DeleteFilePayload!
+
+    createSignedFileUrl(id: ID!): String!
+}

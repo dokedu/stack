@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.11.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.2.4",
+    "@graphql-codegen/typescript-urql-graphcache": "^3.1.0",
+    "@graphql-codegen/urql-introspection": "^3.0.0",
+    "@parcel/watcher": "^2.4.1",
+    "@tailwindcss/postcss": "next",
+    "@tailwindcss/vite": "next",
+    "@urql/exchange-auth": "^2.1.6",
+    "@urql/exchange-graphcache": "^6.5.0",
+    "@urql/vue": "^1.1.2",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/nuxt": "^10.9.0",
+    "graphql": "^16.8.1",
+    "tailwindcss": "next"
+  }
+}

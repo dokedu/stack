@@ -1,0 +1,20 @@
+# GraphQL schema github.com/dokedu/stack/backend
+#
+# https://gqlgen.com/getting-started/
+
+scalar Time
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  currentPage: Int!
+}
+
+enum SortDirection {
+  asc
+  desc
+}
+
+type Query
+
+type Mutation

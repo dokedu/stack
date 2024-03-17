@@ -1,0 +1,46 @@
+input SignInInput {
+  email: String!
+  password: String!
+}
+
+type SignInPayload {
+  user: User!
+  token: String!
+}
+
+input ResetPasswordInput {
+  token: String
+  password: String!
+}
+
+type ResetPasswordPayload {
+  user: User!
+  token: String!
+  organisation: Organisation!
+}
+
+input ForgotPasswordInput {
+  email: String!
+}
+
+type ForgotPasswordPayload {
+  success: Boolean!
+}
+
+type SignOutPayload {
+  success: Boolean!
+}
+
+type UpdatePasswordPayload {
+  success: Boolean!
+}
+
+extend type Mutation {
+  signIn(input: SignInInput!): SignInPayload!
+  signOut: SignOutPayload!
+
+  resetPassword(input: ResetPasswordInput!): ResetPasswordPayload!
+  forgotPassword(input: ForgotPasswordInput!): ForgotPasswordPayload!
+
+  updatePassword(oldPassword: String!, newPassword: String!): UpdatePasswordPayload!
+}

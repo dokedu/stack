@@ -1,0 +1,71 @@
+type User {
+  id: ID!
+  email: String
+
+  firstName: String!
+  lastName: String!
+
+  createdAt: Time!
+  deletedAt: Time
+
+  organisationId: ID!
+
+  inviteAccepted: Boolean!
+}
+
+
+type UserConnection {
+  edges: [User]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+
+enum UserOrderBy {
+  firstNameAsc
+  firstNameDesc
+  lastNameAsc
+  lastNameDesc
+}
+
+
+# user filter input
+input UserFilterInput {
+  orderBy: UserOrderBy
+  showDeleted: Boolean
+}
+
+
+extend type Query {
+  users(limit: Int, offset: Int, filter: UserFilterInput, search: String): UserConnection!
+  user(id: ID!): User!
+  me: User!
+}
+
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String
+  grade: Int
+  birthday: Time
+  leftAt: Time
+  joinedAt: Time
+  emoji: String
+  missedHours: Int
+  missedHoursExcused: Int
+}
+
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(input: UpdateUserInput!): User!
+  archiveUser(id: ID!): User!
+}
